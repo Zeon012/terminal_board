@@ -1,0 +1,9 @@
+file_format: "1"
+id: kb60
+name: KB60
+type: shield
+url: https://github.com/kanefron5/keyboard-manual
+requires: [pro_micro]
+exposes: []
+features:
+  - keys
