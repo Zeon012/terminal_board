@@ -1,4 +1,4 @@
-# KB60: ZMK for a hand-wired 61-key ANSI on a Teyleten nRF52840 Pro Micro
+# KB60: ZMK for a hand-wired 64-key ANSI on a Teyleten nRF52840 Pro Micro
 
 Adapted from [kanefron5/keyboard-manual](https://github.com/kanefron5/keyboard-manual) (QMK/RP2040, 5x14 matrix) to ZMK on a nice!nano-compatible nRF52840 board, USB only.
 
@@ -26,14 +26,24 @@ Left unused: 102 and 107 (inner pads). Notes:
 - 006 and 008 are TX/RX, and 101/102/107 are small inner pads, so these are the easiest to get wrong. Confirm the silkscreen on your board before soldering.
 - The pad labelled `101` was read from a photo where it overlaps `011`; check it against the board.
 
-## Default layout assumptions
-Standard ANSI 61 (14/14/13/12/8 keys). Bottom row: LCtrl, Win, Alt at physical cols 0-2, Space at col 6, RAlt, Fn, Menu, RCtrl at cols 10-13. If your wiring differs (the original notes the spacebar area varies), edit the `map` in `kb60.overlay` and the `bindings` in `config/kb60.keymap`, which must stay in the same order.
+## Layout
+64 keys, as in the original design's `LAYOUT_64_ansi`: 14/14/13/14/9, with `` ` ``, Up and Del at the end of the Shift row and Left, Down, Right at the end of the bottom row. Matrix positions follow the original: Enter on col 13, Space on col 5, bottom-right keys on cols 9-13. If your wiring differs, edit the `map` and `keys` in `kb60.overlay` and the `bindings` in `config/kb60.keymap`, which must stay in the same order.
 
 ## Diode direction
 The firmware assumes `col2row` (columns on the switch pin, rows through the diode), like the original build. If your diodes face the other way, change `diode-direction` in `kb60.overlay` to `"row2col"` and swap the pull to the columns.
 
 ## Fn layer
-Fn (right of RAlt) + `1`-`=` row: F-keys. Fn+IJKL: arrows. Fn+Z: bootloader. Fn+M , . /: mute, vol-, vol+, play/pause. Bluetooth is disabled (USB only).
+Hold Fn (right of RAlt):
+- Number row: `` ` `` and F1-F12, Backspace = Del.
+- P [ ]: Print Screen, Scroll Lock, Pause. ; and ': Home, Page Up. / and `` ` ``: End, Page Down. . : Insert.
+- Up = volume up, Down = volume down, Del = mute, Left/Right = previous/next track, Space = play/pause.
+- `\` = ZMK Studio unlock, needed before the configurator can change keys.
+- Z = bootloader.
+
+Bluetooth is disabled (USB only).
+
+## Configuring
+ZMK Studio is enabled over USB. Use the configurator in the `zmk-macropad` repository, or https://zmk.studio: connect, then hold Fn and press `\` to unlock.
 
 ## Build and flash
 1. Push this folder to a GitHub repository and run the **Build ZMK firmware** Action.

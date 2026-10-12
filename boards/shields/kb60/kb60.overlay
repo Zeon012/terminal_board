@@ -1,8 +1,11 @@
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <physical_layouts.dtsi>
 
 /*
- * 61-key ANSI, hand-wired 5 rows x 14 cols (original matrix, no fold).
- * Physical column index = matrix column. Bottom row uses cols 0,1,2,6,10,11,12,13.
+ * 64-key ANSI with an arrow cluster, hand-wired 5 rows x 14 cols. The matrix
+ * positions follow the original design (kanefron5/keyboard-manual,
+ * LAYOUT_64_ansi): Enter is on col 13, Space on col 5, and the bottom-right
+ * keys on cols 9-13.
  * Pins are raw nRF52840 GPIOs (silkscreen "0xx" = &gpio0 xx, "1xx" = &gpio1 xx).
  */
 / {
@@ -53,17 +56,84 @@
             /* row 1: Tab Q W E R T Y U I O P [ ] \ */
             RC(1,0) RC(1,1) RC(1,2) RC(1,3) RC(1,4) RC(1,5) RC(1,6) RC(1,7) RC(1,8) RC(1,9) RC(1,10) RC(1,11) RC(1,12) RC(1,13)
             /* row 2: Caps A S D F G H J K L ; ' Enter */
-            RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10) RC(2,11) RC(2,12)
-            /* row 3: LShift Z X C V B N M , . / RShift */
-            RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(3,6) RC(3,7) RC(3,8) RC(3,9) RC(3,10) RC(3,11)
-            /* row 4: LCtrl LGui LAlt Space RAlt Fn Menu RCtrl */
-            RC(4,0) RC(4,1) RC(4,2) RC(4,6) RC(4,10) RC(4,11) RC(4,12) RC(4,13)
+            RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5) RC(2,6) RC(2,7) RC(2,8) RC(2,9) RC(2,10) RC(2,11) RC(2,13)
+            /* row 3: LShift Z X C V B N M , . / ` Up Del */
+            RC(3,0) RC(3,1) RC(3,2) RC(3,3) RC(3,4) RC(3,5) RC(3,6) RC(3,7) RC(3,8) RC(3,9) RC(3,10) RC(3,11) RC(3,12) RC(3,13)
+            /* row 4: LCtrl LGui LAlt Space RAlt Fn Left Down Right */
+            RC(4,0) RC(4,1) RC(4,2) RC(4,5) RC(4,9) RC(4,10) RC(4,11) RC(4,12) RC(4,13)
         >;
     };
 
     layout0: layout0 {
         compatible = "zmk,physical-layout";
-        display-name = "ANSI 61";
+        display-name = "ANSI 64";
         transform = <&xform>;
+
+        keys
+            = <&key_physical_attrs 100 100    0   0 0 0 0>
+            , <&key_physical_attrs 100 100  100   0 0 0 0>
+            , <&key_physical_attrs 100 100  200   0 0 0 0>
+            , <&key_physical_attrs 100 100  300   0 0 0 0>
+            , <&key_physical_attrs 100 100  400   0 0 0 0>
+            , <&key_physical_attrs 100 100  500   0 0 0 0>
+            , <&key_physical_attrs 100 100  600   0 0 0 0>
+            , <&key_physical_attrs 100 100  700   0 0 0 0>
+            , <&key_physical_attrs 100 100  800   0 0 0 0>
+            , <&key_physical_attrs 100 100  900   0 0 0 0>
+            , <&key_physical_attrs 100 100 1000   0 0 0 0>
+            , <&key_physical_attrs 100 100 1100   0 0 0 0>
+            , <&key_physical_attrs 100 100 1200   0 0 0 0>
+            , <&key_physical_attrs 200 100 1300   0 0 0 0>
+            , <&key_physical_attrs 150 100    0 100 0 0 0>
+            , <&key_physical_attrs 100 100  150 100 0 0 0>
+            , <&key_physical_attrs 100 100  250 100 0 0 0>
+            , <&key_physical_attrs 100 100  350 100 0 0 0>
+            , <&key_physical_attrs 100 100  450 100 0 0 0>
+            , <&key_physical_attrs 100 100  550 100 0 0 0>
+            , <&key_physical_attrs 100 100  650 100 0 0 0>
+            , <&key_physical_attrs 100 100  750 100 0 0 0>
+            , <&key_physical_attrs 100 100  850 100 0 0 0>
+            , <&key_physical_attrs 100 100  950 100 0 0 0>
+            , <&key_physical_attrs 100 100 1050 100 0 0 0>
+            , <&key_physical_attrs 100 100 1150 100 0 0 0>
+            , <&key_physical_attrs 100 100 1250 100 0 0 0>
+            , <&key_physical_attrs 150 100 1350 100 0 0 0>
+            , <&key_physical_attrs 175 100    0 200 0 0 0>
+            , <&key_physical_attrs 100 100  175 200 0 0 0>
+            , <&key_physical_attrs 100 100  275 200 0 0 0>
+            , <&key_physical_attrs 100 100  375 200 0 0 0>
+            , <&key_physical_attrs 100 100  475 200 0 0 0>
+            , <&key_physical_attrs 100 100  575 200 0 0 0>
+            , <&key_physical_attrs 100 100  675 200 0 0 0>
+            , <&key_physical_attrs 100 100  775 200 0 0 0>
+            , <&key_physical_attrs 100 100  875 200 0 0 0>
+            , <&key_physical_attrs 100 100  975 200 0 0 0>
+            , <&key_physical_attrs 100 100 1075 200 0 0 0>
+            , <&key_physical_attrs 100 100 1175 200 0 0 0>
+            , <&key_physical_attrs 225 100 1275 200 0 0 0>
+            , <&key_physical_attrs 200 100    0 300 0 0 0>
+            , <&key_physical_attrs 100 100  200 300 0 0 0>
+            , <&key_physical_attrs 100 100  300 300 0 0 0>
+            , <&key_physical_attrs 100 100  400 300 0 0 0>
+            , <&key_physical_attrs 100 100  500 300 0 0 0>
+            , <&key_physical_attrs 100 100  600 300 0 0 0>
+            , <&key_physical_attrs 100 100  700 300 0 0 0>
+            , <&key_physical_attrs 100 100  800 300 0 0 0>
+            , <&key_physical_attrs 100 100  900 300 0 0 0>
+            , <&key_physical_attrs 100 100 1000 300 0 0 0>
+            , <&key_physical_attrs 100 100 1100 300 0 0 0>
+            , <&key_physical_attrs 100 100 1200 300 0 0 0>
+            , <&key_physical_attrs 100 100 1300 300 0 0 0>
+            , <&key_physical_attrs 100 100 1400 300 0 0 0>
+            , <&key_physical_attrs 125 100    0 400 0 0 0>
+            , <&key_physical_attrs 125 100  125 400 0 0 0>
+            , <&key_physical_attrs 125 100  250 400 0 0 0>
+            , <&key_physical_attrs 625 100  375 400 0 0 0>
+            , <&key_physical_attrs 100 100 1000 400 0 0 0>
+            , <&key_physical_attrs 100 100 1100 400 0 0 0>
+            , <&key_physical_attrs 100 100 1200 400 0 0 0>
+            , <&key_physical_attrs 100 100 1300 400 0 0 0>
+            , <&key_physical_attrs 100 100 1400 400 0 0 0>
+            ;
     };
 };
