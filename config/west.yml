@@ -1,11 +1,23 @@
 manifest:
   remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
+    - name: cormoran
+      url-base: https://github.com/cormoran
   projects:
+    # ZMK fork that adds the unofficial custom Studio RPC protocol, plus the
+    # modules built on it. Same pinned commits as the macropad firmware, which
+    # were reviewed there; review again before moving any of these forward.
     - name: zmk
-      remote: zmkfirmware
-      revision: main
+      remote: cormoran
+      revision: 1fc72aaff7a42bd533c1f4c9b3f23c5317c745f4
       import: app/west.yml
+    - name: zmk-feature-custom-settings
+      remote: cormoran
+      revision: c6a7fef3a3be3d3ace5de9a4b0628c6418cd1f3f
+    - name: zmk-feature-runtime-macro
+      remote: cormoran
+      revision: 38530962eb7061b60efcb98e84585cfb1f0cb6de
+    - name: zmk-feature-input-stream
+      remote: cormoran
+      revision: aeb015908a42a7615ccdccc7feb3a10d23132a71
   self:
     path: config

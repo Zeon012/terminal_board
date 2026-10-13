@@ -53,6 +53,9 @@ Hold Fn (right of RAlt):
 
 Bluetooth is disabled (USB only).
 
+## Firmware base
+This branch builds on cormoran's fork of ZMK, which adds an unofficial custom Studio RPC channel, with the runtime macro and key stream modules. All are pinned to exact commits in `config/west.yml`. That is what lets the configurator create macros and run its key tester on this keyboard. Flash `settings_reset` first when moving between this firmware and official ZMK, because saved key changes are not compatible between the two.
+
 ## Configuring
 ZMK Studio is enabled over USB. Use the configurator in the `zmk-macropad` repository, or https://zmk.studio: connect, then hold Fn and press `\` to unlock.
 
