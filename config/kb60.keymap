@@ -2,6 +2,11 @@
 #include <behaviors/runtime_macro.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
+// Named so the configurator can find it.
+&msc {
+    display-name = "Mouse Scroll";
+};
+
 / {
     keymap {
         compatible = "zmk,keymap";
