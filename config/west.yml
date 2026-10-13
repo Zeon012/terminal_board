@@ -2,6 +2,8 @@ manifest:
   remotes:
     - name: cormoran
       url-base: https://github.com/cormoran
+    - name: zeon012
+      url-base: https://github.com/Zeon012
   projects:
     # ZMK fork that adds the unofficial custom Studio RPC protocol, plus the
     # modules built on it. Same pinned commits as the macropad firmware, which
@@ -19,5 +21,10 @@ manifest:
     - name: zmk-feature-input-stream
       remote: cormoran
       revision: aeb015908a42a7615ccdccc7feb3a10d23132a71
+    # The macropad's own module: battery and Bluetooth status for the
+    # configurator, and the single-LED Bluetooth indicator.
+    - name: zmk-macropad
+      remote: zeon012
+      revision: fdde6bf99c464f777e231d2acd005ad73ae444aa
   self:
     path: config

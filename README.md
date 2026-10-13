@@ -49,9 +49,10 @@ Hold Fn (right of RAlt):
 - P [ ]: Print Screen, Scroll Lock, Pause. ; and ': Home, Page Up. / and `` ` ``: End, Page Down. . : Insert.
 - Up = volume up, Down = volume down, Del = mute, Left/Right = previous/next track, Space = play/pause.
 - `\` = ZMK Studio unlock, needed before the configurator can change keys.
+- Q W E = Bluetooth profile 1, 2, 3. R = clear the selected profile (puts it in pairing mode). T = switch output between USB and Bluetooth.
 - Z = bootloader.
 
-Bluetooth is disabled (USB only).
+Bluetooth and USB are both enabled, with battery monitoring. To pair: hold Fn, press Q to select profile 1, press R to clear it, then add "KB60" in the computer's Bluetooth settings. The onboard LED blinks fast in pairing mode and flashes every two seconds while a paired computer is not connected.
 
 ## Firmware base
 This branch builds on cormoran's fork of ZMK, which adds an unofficial custom Studio RPC channel, with the runtime macro and key stream modules. All are pinned to exact commits in `config/west.yml`. That is what lets the configurator create macros and run its key tester on this keyboard. Flash `settings_reset` first when moving between this firmware and official ZMK, because saved key changes are not compatible between the two.

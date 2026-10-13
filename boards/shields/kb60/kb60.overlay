@@ -13,6 +13,11 @@
  * row 4 is on the 101 pad underneath.
  */
 / {
+    // Bluetooth status LED: the board's onboard LED on P0.15.
+    zephyr,user {
+        bt-led-gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
+    };
+
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layout = &layout0;
