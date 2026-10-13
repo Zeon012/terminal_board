@@ -8,24 +8,24 @@ The original 5 rows x 14 cols wiring is kept as is: no cuts, no tied columns. Th
 ## Pin map
 The overlay uses raw nRF52840 GPIO names taken from the board's silkscreen (`0xx` = `&gpio0 xx`, `1xx` = `&gpio1 xx`), so it does not depend on the clone's Pro Micro numbering.
 
-Lines follow the pins in physical order: columns 0-9 down the left edge from the USB end (skipping the two GND pins), columns 10-13 down the right edge (after RAW, GND, RST, VCC), then rows 0-3. Column 0 is the Esc column.
+Lines follow the pins in physical order, starting from the Backspace side: column 13 on the first pin of the left edge at the USB end, down that edge to column 4 (skipping the two GND pins), then columns 3-0 down the right edge (after RAW, GND, RST, VCC), then rows 0-3. Column 0 is the Esc column.
 
 | Line | Silk | Where |
 |---|---|---|
-| Col 0 | 006 | left edge, 1st pin from the USB end |
-| Col 1 | 008 | left edge, 2nd pin from the USB end |
-| Col 2 | 017 | left edge, 5th pin from the USB end |
-| Col 3 | 020 | left edge, 6th pin from the USB end |
-| Col 4 | 022 | left edge, 7th pin from the USB end |
-| Col 5 | 024 | left edge, 8th pin from the USB end |
-| Col 6 | 100 | left edge, 9th pin from the USB end |
-| Col 7 | 011 | left edge, 10th pin from the USB end |
-| Col 8 | 104 | left edge, 11th pin from the USB end |
-| Col 9 | 106 | left edge, 12th pin from the USB end |
-| Col 10 | 031 | right edge, 5th pin from the USB end |
-| Col 11 | 029 | right edge, 6th pin from the USB end |
-| Col 12 | 002 | right edge, 7th pin from the USB end |
-| Col 13 | 115 | right edge, 8th pin from the USB end |
+| Col 0 | 115 | right edge, 8th pin from the USB end |
+| Col 1 | 002 | right edge, 7th pin from the USB end |
+| Col 2 | 029 | right edge, 6th pin from the USB end |
+| Col 3 | 031 | right edge, 5th pin from the USB end |
+| Col 4 | 106 | left edge, 12th pin from the USB end |
+| Col 5 | 104 | left edge, 11th pin from the USB end |
+| Col 6 | 011 | left edge, 10th pin from the USB end |
+| Col 7 | 100 | left edge, 9th pin from the USB end |
+| Col 8 | 024 | left edge, 8th pin from the USB end |
+| Col 9 | 022 | left edge, 7th pin from the USB end |
+| Col 10 | 020 | left edge, 6th pin from the USB end |
+| Col 11 | 017 | left edge, 5th pin from the USB end |
+| Col 12 | 008 | left edge, 2nd pin from the USB end |
+| Col 13 | 006 | left edge, 1st pin from the USB end |
 | Row 0 | 113 | right edge, 9th pin from the USB end |
 | Row 1 | 111 | right edge, 10th pin from the USB end |
 | Row 2 | 010 | right edge, 11th pin from the USB end |

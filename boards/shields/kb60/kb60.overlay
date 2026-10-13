@@ -7,9 +7,10 @@
  * LAYOUT_64_ansi): Enter is on col 13, Space on col 5, and the bottom-right
  * keys on cols 9-13.
  * Pins are raw nRF52840 GPIOs (silkscreen "0xx" = &gpio0 xx, "1xx" = &gpio1 xx).
- * Columns 0-9 run down the board's left edge from the top (USB end), columns
- * 10-13 continue down the right edge, and rows 0-3 follow them; row 4 is on
- * the 101 pad underneath.
+ * The column wires are soldered in physical order starting from the Backspace
+ * side: column 13 at the top of the board's left edge (USB end), down that edge
+ * to column 4, then columns 3-0 down the right edge. Rows 0-3 follow them, and
+ * row 4 is on the 101 pad underneath.
  */
 / {
     chosen {
@@ -23,20 +24,20 @@
         wakeup-source;
 
         col-gpios
-            = <&gpio0 6 GPIO_ACTIVE_HIGH>
-            , <&gpio0 8 GPIO_ACTIVE_HIGH>
-            , <&gpio0 17 GPIO_ACTIVE_HIGH>
-            , <&gpio0 20 GPIO_ACTIVE_HIGH>
-            , <&gpio0 22 GPIO_ACTIVE_HIGH>
-            , <&gpio0 24 GPIO_ACTIVE_HIGH>
-            , <&gpio1 0 GPIO_ACTIVE_HIGH>
-            , <&gpio0 11 GPIO_ACTIVE_HIGH>
-            , <&gpio1 4 GPIO_ACTIVE_HIGH>
-            , <&gpio1 6 GPIO_ACTIVE_HIGH>
-            , <&gpio0 31 GPIO_ACTIVE_HIGH>
-            , <&gpio0 29 GPIO_ACTIVE_HIGH>
+            = <&gpio1 15 GPIO_ACTIVE_HIGH>
             , <&gpio0 2 GPIO_ACTIVE_HIGH>
-            , <&gpio1 15 GPIO_ACTIVE_HIGH>
+            , <&gpio0 29 GPIO_ACTIVE_HIGH>
+            , <&gpio0 31 GPIO_ACTIVE_HIGH>
+            , <&gpio1 6 GPIO_ACTIVE_HIGH>
+            , <&gpio1 4 GPIO_ACTIVE_HIGH>
+            , <&gpio0 11 GPIO_ACTIVE_HIGH>
+            , <&gpio1 0 GPIO_ACTIVE_HIGH>
+            , <&gpio0 24 GPIO_ACTIVE_HIGH>
+            , <&gpio0 22 GPIO_ACTIVE_HIGH>
+            , <&gpio0 20 GPIO_ACTIVE_HIGH>
+            , <&gpio0 17 GPIO_ACTIVE_HIGH>
+            , <&gpio0 8 GPIO_ACTIVE_HIGH>
+            , <&gpio0 6 GPIO_ACTIVE_HIGH>
             ;
 
         row-gpios
