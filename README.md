@@ -8,18 +8,29 @@ The original 5 rows x 14 cols wiring is kept as is: no cuts, no tied columns. Th
 ## Pin map
 The overlay uses raw nRF52840 GPIO names taken from the board's silkscreen (`0xx` = `&gpio0 xx`, `1xx` = `&gpio1 xx`), so it does not depend on the clone's Pro Micro numbering.
 
-| Line | Silk | Line | Silk |
-|---|---|---|---|
-| Col 0 | 031 | Col 7 | 009 |
-| Col 1 | 029 | Col 8 | 106 |
-| Col 2 | 002 | Col 9 | 104 |
-| Col 3 | 115 | Col 10 | 011 |
-| Col 4 | 113 | Col 11 | 100 |
-| Col 5 | 111 | Col 12 | 024 |
-| Col 6 | 010 | Col 13 | 022 |
-| Row 0 | 006 | Row 3 | 020 |
-| Row 1 | 008 | Row 4 | 101 (inner pad on the underside) |
-| Row 2 | 017 | | |
+Lines follow the pins in physical order: columns 0-9 down the left edge from the USB end (skipping the two GND pins), columns 10-13 down the right edge (after RAW, GND, RST, VCC), then rows 0-3. Column 0 is the Esc column.
+
+| Line | Silk | Where |
+|---|---|---|
+| Col 0 | 006 | left edge, 1st pin from the USB end |
+| Col 1 | 008 | left edge, 2nd pin from the USB end |
+| Col 2 | 017 | left edge, 5th pin from the USB end |
+| Col 3 | 020 | left edge, 6th pin from the USB end |
+| Col 4 | 022 | left edge, 7th pin from the USB end |
+| Col 5 | 024 | left edge, 8th pin from the USB end |
+| Col 6 | 100 | left edge, 9th pin from the USB end |
+| Col 7 | 011 | left edge, 10th pin from the USB end |
+| Col 8 | 104 | left edge, 11th pin from the USB end |
+| Col 9 | 106 | left edge, 12th pin from the USB end |
+| Col 10 | 031 | right edge, 5th pin from the USB end |
+| Col 11 | 029 | right edge, 6th pin from the USB end |
+| Col 12 | 002 | right edge, 7th pin from the USB end |
+| Col 13 | 115 | right edge, 8th pin from the USB end |
+| Row 0 | 113 | right edge, 9th pin from the USB end |
+| Row 1 | 111 | right edge, 10th pin from the USB end |
+| Row 2 | 010 | right edge, 11th pin from the USB end |
+| Row 3 | 009 | right edge, 12th pin from the USB end |
+| Row 4 | 101 | inner pad on the underside |
 
 Left unused: 102 and 107 (inner pads). Notes:
 - 009 and 010 are the NFC pins; ZMK's nice!nano board config turns them into normal GPIO.
