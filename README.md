@@ -41,7 +41,7 @@ Left unused: 102 and 107 (inner pads). Notes:
 64 keys, as in the original design's `LAYOUT_64_ansi`: 14/14/13/14/9, with `` ` ``, Up and Del at the end of the Shift row and Left, Down, Right at the end of the bottom row. Matrix positions follow the original: Enter on col 13, Space on col 5, bottom-right keys on cols 9-13. If your wiring differs, edit the `map` and `keys` in `kb60.overlay` and the `bindings` in `config/kb60.keymap`, which must stay in the same order.
 
 ## Diode direction
-The firmware scans `row2col`: current flows from the row wire, through the diode and switch, to the column wire, so each diode's stripe faces away from the row wire. If your diodes face the other way, change `diode-direction` in `kb60.overlay` to `"col2row"` and move the pull-downs from the columns to the rows.
+The firmware scans `col2row`: current flows from the column wire, through the switch and diode, to the row wire, so each diode's stripe faces the row wire. If your diodes face the other way, change `diode-direction` in `kb60.overlay` to `"row2col"` and move the pull-downs from the rows to the columns.
 
 ## Fn layer
 Hold Fn (right of RAlt):
