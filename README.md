@@ -49,16 +49,30 @@ Hold Fn (right of RAlt):
 - P [ ]: Print Screen, Scroll Lock, Pause. ; and ': Home, Page Up. / and `` ` ``: End, Page Down. . : Insert.
 - Up = volume up, Down = volume down, Del = mute, Left/Right = previous/next track, Space = play/pause.
 - `\` = ZMK Studio unlock, needed before the configurator can change keys.
-- Q W E = Bluetooth profile 1, 2, 3. R = clear the selected profile (puts it in pairing mode). T = switch output between USB and Bluetooth.
+- Q W E = Bluetooth profile 1, 2, 3. R = clear the selected profile (puts it in pairing mode). T = switch output between USB and Bluetooth. Y = Bluetooth off: switches to spare profile 3 and disconnects profile 1, so the computer stays disconnected; Fn + Q reconnects.
 - Z = bootloader.
 
 Bluetooth and USB are both enabled, with battery monitoring. To pair: hold Fn, press Q to select profile 1, press R to clear it, then add "KB60" in the computer's Bluetooth settings. The onboard LED blinks fast in pairing mode and flashes every two seconds while a paired computer is not connected.
+
+Switching profiles disconnects the other computers (`CONFIG_MACROPAD_BLE_EXCLUSIVE`), so only the selected one shows the keyboard as connected. Switching back reconnects within a second or two.
+
+**Boot key:** hold Esc while switching the keyboard on (or plugging it in, if it has no battery) to get the `NICENANO` flashing drive without reaching the reset pins.
 
 ## Firmware base
 This branch builds on cormoran's fork of ZMK, which adds an unofficial custom Studio RPC channel, with the runtime macro and key stream modules. All are pinned to exact commits in `config/west.yml`. That is what lets the configurator create macros and run its key tester on this keyboard. Flash `settings_reset` first when moving between this firmware and official ZMK, because saved key changes are not compatible between the two.
 
 ## Configuring
 ZMK Studio is enabled over USB. Use the configurator in the `zmk-macropad` repository, or https://zmk.studio: connect, then hold Fn and press `\` to unlock.
+
+**VIA** (https://usevia.app) works too, over USB or Bluetooth:
+
+1. In VIA's Settings, turn on **Show Design tab**.
+2. In Design, load `via/kb60.json`.
+3. Authorize the keyboard, and unlock it (Fn + `\`) before changing anything.
+
+VIA can remap keys, write VIA macros (M0-M15) and run its Test Matrix. Anything VIA has no keycode for shows as **ZMK** and is left alone. The VIA code lives in the macropad module; see `via/README.md` in `zmk-macropad` for details.
+
+The macropad and this keyboard have the same USB ID, so VIA keeps one definition for both. Load the matching JSON in the Design tab when you switch between them.
 
 ## Build and flash
 1. Push this folder to a GitHub repository and run the **Build ZMK firmware** Action.
