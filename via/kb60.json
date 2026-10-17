@@ -1,7 +1,7 @@
 {
   "name": "KB60 (ZMK)",
-  "vendorId": "0x1D50",
-  "productId": "0x615E",
+  "vendorId": "0x1209",
+  "productId": "0x0001",
   "matrix": {
     "rows": 5,
     "cols": 14

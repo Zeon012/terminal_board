@@ -72,7 +72,7 @@ ZMK Studio is enabled over USB. Use the configurator in the `zmk-macropad` repos
 
 VIA can remap keys, write VIA macros (M0-M15) and run its Test Matrix. Anything VIA has no keycode for shows as **ZMK** and is left alone. The VIA code lives in the macropad module; see `via/README.md` in `zmk-macropad` for details.
 
-The macropad and this keyboard have the same USB ID, so VIA keeps one definition for both. Load the matching JSON in the Design tab when you switch between them.
+This keyboard has its own USB and Bluetooth ID, 1209:0001 (the macropad uses ZMK's 1D50:615E), so VIA keeps a separate definition for each. The configurator 1.0.5 or later finds it over USB.
 
 ## Build and flash
 1. Push this folder to a GitHub repository and run the **Build ZMK firmware** Action.
