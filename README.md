@@ -31,8 +31,10 @@ Lines follow the pins in physical order, starting from the Backspace side: colum
 | Row 2 | 010 | right edge, 11th pin from the USB end |
 | Row 3 | 009 | right edge, 12th pin from the USB end |
 | Row 4 | 101 | inner pad on the underside |
+| Status LED data in | 102 | inner pad; one WS2812B, powered from VCC and GND |
 
-Left unused: 102 and 107 (inner pads). Notes:
+Left unused: 107 (inner pad). Notes:
+- The status LED takes its power from VCC, not RAW: the board switches VCC off in sleep, and a dark WS2812B still draws about 1 mA, which would drain the battery.
 - 009 and 010 are the NFC pins; ZMK's nice!nano board config turns them into normal GPIO.
 - 006 and 008 are TX/RX, and 101/102/107 are small inner pads, so these are the easiest to get wrong. Confirm the silkscreen on your board before soldering.
 - The pad labelled `101` was read from a photo where it overlaps `011`; check it against the board.
@@ -52,7 +54,7 @@ Hold Fn (right of RAlt):
 - Q W E = Bluetooth profile 1, 2, 3. R = clear the selected profile (puts it in pairing mode). T = switch output between USB and Bluetooth. Y = Bluetooth off: switches to spare profile 3 and disconnects profile 1, so the computer stays disconnected; Fn + Q reconnects.
 - Z = bootloader.
 
-Bluetooth and USB are both enabled, with battery monitoring. To pair: hold Fn, press Q to select profile 1, press R to clear it, then add "KB60" in the computer's Bluetooth settings. The onboard LED blinks fast in pairing mode and flashes every two seconds while a paired computer is not connected.
+Bluetooth and USB are both enabled, with battery monitoring. To pair: hold Fn, press Q to select profile 1, press R to clear it, then add "KB60" in the computer's Bluetooth settings. The status LED blinks fast in pairing mode and flashes every two seconds while a paired computer is not connected, in the profile's colour (1 blue, 2 cyan, 3 magenta), and shows solid for 1.5 s on connecting. Otherwise it is green on USB power and red on battery, blinking red when the battery is low; on battery it goes dark while the keyboard is idle.
 
 Switching profiles disconnects the other computers (`CONFIG_MACROPAD_BLE_EXCLUSIVE`), so only the selected one shows the keyboard as connected. Switching back reconnects within a second or two.
 

@@ -22,10 +22,10 @@ manifest:
       remote: cormoran
       revision: aeb015908a42a7615ccdccc7feb3a10d23132a71
     # The macropad's own module: battery and Bluetooth status for the
-    # configurator, the single-LED Bluetooth indicator, VIA over USB and
+    # configurator, the status LED, VIA over USB and
     # Bluetooth, the boot key and exclusive Bluetooth profiles.
     - name: zmk-macropad
       remote: zeon012
-      revision: b950b382e2e6102dfa8dd2593ceef171cedaa12a
+      revision: 02ed463eb79d34edde0eaf0f403d187723435837
   self:
     path: config
