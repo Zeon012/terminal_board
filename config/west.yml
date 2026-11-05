@@ -26,6 +26,6 @@ manifest:
     # Bluetooth, the boot key and exclusive Bluetooth profiles.
     - name: zmk-macropad
       remote: zeon012
-      revision: 02ed463eb79d34edde0eaf0f403d187723435837
+      revision: b8142ea7a46d58a0cad4604f52e5e92530323500
   self:
     path: config
