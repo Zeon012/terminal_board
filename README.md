@@ -25,7 +25,7 @@ Lines follow the pins in physical order, starting from the Backspace side: colum
 | Col 10 | 020 | left edge, 6th pin from the USB end |
 | Col 11 | 017 | left edge, 5th pin from the USB end |
 | Col 12 | 008 | left edge, 2nd pin from the USB end |
-| Col 13 | 006 | left edge, 1st pin from the USB end |
+| Col 13 | 102 | small inner pad (moved from 006, whose pad died) |
 | Row 0 | 113 | right edge, 9th pin from the USB end |
 | Row 1 | 111 | right edge, 10th pin from the USB end |
 | Row 2 | 010 | right edge, 11th pin from the USB end |
@@ -33,7 +33,7 @@ Lines follow the pins in physical order, starting from the Backspace side: colum
 | Row 4 | 101 | inner pad on the underside |
 | Status LED data in | 107 | inner pad; one WS2812B, powered from VCC and GND |
 
-Left unused: 102 (inner pad). Notes:
+Left unused: 006 (its pad stopped working, so column 13 moved to 102). Notes:
 - The status LED takes its power from VCC, not RAW: the board switches VCC off in sleep, and a dark WS2812B still draws about 1 mA, which would drain the battery.
 - 009 and 010 are the NFC pins; ZMK's nice!nano board config turns them into normal GPIO.
 - 006 and 008 are TX/RX, and 101/102/107 are small inner pads, so these are the easiest to get wrong. Confirm the silkscreen on your board before soldering.
