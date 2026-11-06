@@ -15,14 +15,15 @@
  * row 4 is on the 101 pad underneath.
  */
 / {
-    // Onboard LED on P0.15. Only used if the status pixel below is removed
-    // and CONFIG_MACROPAD_BT_LED is turned back on.
+    // Onboard LED on P0.15. Only used if the LED below is removed and
+    // CONFIG_MACROPAD_BT_LED is turned back on.
     zephyr,user {
         bt-led-gpios = <&gpio0 15 GPIO_ACTIVE_HIGH>;
     };
 
     chosen {
         zmk,kscan = &kscan0;
+        zmk,underglow = &led_strip;
         zmk,physical-layout = &layout0;
     };
 
@@ -153,6 +154,8 @@
 /*
  * Status LED: one WS2812B, data in on pad 107 (P1.07), powered from VCC, the
  * 3.3 V the board switches off in sleep. Driven over SPI; only MOSI is used.
+ * It is the underglow "strip" (one pixel long), so it takes ZMK's RGB effects
+ * and the macropad module's light bar status mode, like the macropad's bar.
  */
 &pinctrl {
     spi3_default: spi3_default {
@@ -176,7 +179,7 @@
     pinctrl-1 = <&spi3_sleep>;
     pinctrl-names = "default", "sleep";
 
-    status_pixel: ws2812@0 {
+    led_strip: ws2812@0 {
         compatible = "worldsemi,ws2812-spi";
         reg = <0>;
         spi-max-frequency = <4000000>;

@@ -53,8 +53,9 @@ Hold Fn (right of RAlt):
 - `\` = ZMK Studio unlock, needed before the configurator can change keys.
 - Q W E = Bluetooth profile 1, 2, 3. R = clear the selected profile (puts it in pairing mode). T = switch output between USB and Bluetooth. Y = Bluetooth off: switches to spare profile 3 and disconnects profile 1, so the computer stays disconnected; Fn + Q reconnects.
 - Z = bootloader.
+- A S D F = LED on/off, next effect, brighter, dimmer. L = switch the LED between RGB effects and status (saved).
 
-Bluetooth and USB are both enabled, with battery monitoring. To pair: hold Fn, press Q to select profile 1, press R to clear it, then add "KB60" in the computer's Bluetooth settings. The status LED blinks fast in pairing mode and flashes every two seconds while a paired computer is not connected, in the profile's colour (1 blue, 2 cyan, 3 magenta), and shows solid for 1.5 s on connecting. Otherwise it is green on USB power and red on battery, blinking red when the battery is low; on battery it goes dark while the keyboard is idle.
+Bluetooth and USB are both enabled, with battery monitoring. To pair: hold Fn, press Q to select profile 1, press R to clear it, then add "KB60" in the computer's Bluetooth settings. The LED works like the macropad's light bar, one pixel long: ZMK RGB effects by default, or, after Fn + L, a status light. In status mode it blinks fast in pairing mode and flashes every two seconds while a paired computer is not connected, in the profile's colour (1 blue, 2 cyan, 3 magenta); a low battery blinks red; otherwise it is green on USB output and the profile's colour on Bluetooth. On battery it goes dark while the keyboard is idle, in either mode.
 
 Switching profiles disconnects the other computers (`CONFIG_MACROPAD_BLE_EXCLUSIVE`), so only the selected one shows the keyboard as connected. Switching back reconnects within a second or two.
 

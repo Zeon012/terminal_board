@@ -46,10 +46,17 @@
       "name": "BT Off",
       "title": "Bluetooth off: switch to spare profile 2 and drop the PC (Fn + BT 1 reconnects)",
       "shortName": "BTOff"
+    },
+    {
+      "name": "LED Mode",
+      "title": "Switch the LED between RGB effects and status (&lb_mode)",
+      "shortName": "LBar"
     }
   ],
   "menus": [],
-  "keycodes": [],
+  "keycodes": [
+    "qmk_lighting"
+  ],
   "layouts": {
     "keymap": [
       [
